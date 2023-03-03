@@ -1,0 +1,27 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.link {
+  color: #007cb6;
+  text-decoration: none;
+
+  &:hover {
+    color: #c45000;
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: #007cb6;
+    text-decoration: none;
+  }
+}
+
+header > p > a.link,
+header > p > a.link:visited {
+  color: inherit;
+  text-decoration: underline;
+}
