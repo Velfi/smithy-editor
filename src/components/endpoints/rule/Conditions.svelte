@@ -12,7 +12,7 @@
 
 {#if conditions.length === 2 && 'assign' in conditions[1]}
   if <Condition condition={conditions[0]} />&nbsp;&lbrace;
-  <Indent interactive>
+  <Indent>
     <p>
       let&nbsp;{conditions[1].assign}&nbsp;&equals;&nbsp;<Condition
         condition={conditions[1]}
@@ -26,7 +26,7 @@
   if ({#each conditions as condition, index}{#if index < conditions.length - 1}<Condition
         {condition}
       /> &amp;&amp;&nbsp;{:else}<Condition {condition} />{/if}{/each})&nbsp;&lbrace;
-  <Indent interactive>
+  <Indent>
     <slot />
   </Indent>
   &rbrace;

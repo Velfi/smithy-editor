@@ -2,6 +2,7 @@
   import type * as traits from '$lib/traits';
   import { entries } from 'lodash';
   import Indent from '../Indent.svelte';
+  import MiniAccordion from '../MiniAccordion.svelte';
   import Rules from './rule/Rules.svelte';
   import RuleSetParameter from './RuleSetParameter.svelte';
 
@@ -11,21 +12,27 @@
 </script>
 
 <p class="field">Version: v{ruleSet.version}</p>
-<p class="field">Parameters:</p>
-{#each parameters as [key, parameter]}
-  <div class="space-children">
-    <div>
-      <p>{key}:</p>
-      <Indent>
-        <RuleSetParameter {parameter} />
-      </Indent>
+
+<MiniAccordion closed>
+  <p class="field">Parameters:</p>
+  {#each parameters as [key, parameter]}
+    <div class="space-children">
+      <div>
+        <p>{key}:</p>
+        <Indent>
+          <RuleSetParameter {parameter} />
+        </Indent>
+      </div>
     </div>
+  {/each}
+</MiniAccordion>
+
+<MiniAccordion closed>
+  <p class="field">Rules:</p>
+  <div class="space-children code">
+    <Rules {rules} />
   </div>
-{/each}
-<p class="field">Rules:</p>
-<div class="space-children code">
-  <Rules {rules} />
-</div>
+</MiniAccordion>
 
 <style lang="scss">
   .field {
